@@ -1,0 +1,1732 @@
+/*------------------------------------- GENERALES ---------------------------------------------------*/
+body
+{
+    font-size:75%;
+    font-family:verdana,arial,'sans serif';
+    background-color:#FFFFFF;
+    color:#000080;
+    margin:auto;
+    width:960px; height:auto; margin:auto;
+}
+
+
+/*------------------------------------- TEXTO ---------------------------------------------------*/
+
+label
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+.estiloLabel
+{
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+}
+
+.estiloLabel2
+{
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    width: 150px;
+}
+
+.estiloReadOnly
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+    width: 400px;
+    background-color: lightgray;
+}
+
+textarea
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: gray;
+    border-style:inset;
+    border-width:1px;
+    border-color:black;
+}
+
+input
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+p.tituloSubSeccion
+{
+    font-size:14px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: gray;
+    text-transform:uppercase;
+}
+p.tituloSubSeccion2
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+p.footer
+{
+    text-align:center;
+    font-size:10px;
+    font-family:verdana,arial,'sans serif';
+    line-height:20%;
+    color: Gray;
+}
+
+p.header
+{
+    text-align:right;
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    line-height:40%;
+    color: Gray;
+    vertical-align: middle;
+}
+
+p.name
+{
+    text-align:center;
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    line-height:40%;
+    color: Gray;
+    vertical-align: middle;
+}
+
+a.button
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    text-transform:uppercase;
+    border-style:groove;
+    border-width:5px;
+    border-color: gray;
+    padding: 5px;
+}
+
+h1 {font-size:16px; color:#00347A; margin-bottom:8px; margin-left:8px;font-family:verdana,arial,'sans serif';}
+
+
+/*------------------------------------- DIV ---------------------------------------------------*/
+
+div.contenido
+{
+    width:960px;
+    padding:0px;
+    margin:1px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.SubContenido
+{
+    width:450px;
+    padding:0px;
+    margin:1px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.SubContenidoMessage
+{
+    width:600px;
+    padding:0px;
+    margin:1px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.seccionPrincipal
+{
+    width:900px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+div.seccion50
+{
+    width:405px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+div.contenidoSeccion50
+{
+    width:400px;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+    height: 150px; 
+    overflow: auto;
+}
+
+div.centered 
+{
+    text-align: center;
+}
+div.centered table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+
+div.seccion
+{
+    width:960px;
+    background-color:#483D8B;
+    color: white;
+    font-size:14px;
+    font-family:verdana,arial,'sans serif';
+    line-height:200%;
+    text-indent:10px;
+}
+
+div.cajaDoc
+{
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    height: 100px; 
+    overflow: auto; 
+    width: 500px;
+}
+div.cajaDoc table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+
+div.subseccion
+{
+    width:945px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.subseccion2
+{
+    width:350px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+
+}
+div.subseccion3
+{
+    width:550px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+
+}
+div.subseccion4
+{
+    width:700px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+div.subseccion5
+{
+    width:400px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+div.subseccion6
+{
+    width:450px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+div.subseccionEncargado
+{
+    width:600px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+
+}
+
+div.textoSeccion
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+div.footer
+{
+    width:960px;
+    padding:0px;
+    margin:2px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+/*------------------------------------- TABLAS ---------------------------------------------------*/
+
+
+.tablaRes{   
+    font-family:verdana,arial,'sans serif';
+    align:center;
+    font-size:12px;
+
+}
+
+.tablaResHeader{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:4px;
+    padding-bottom:4px;
+    padding-left:4px;
+    padding-right:4px;
+    background-color:#365C6D;
+    color:white;
+}
+
+.tablaResOddRow{
+
+    font-size:1em;
+    border:1px solid black;
+    padding: 5px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.tablaResEvenRow{
+
+    font-size:1em;
+    border:1px solid black;
+    padding: 5px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    text-align:center;
+    background:none repeat scroll 0 0 #D3D3D3;
+}
+
+.tablaResCeldaIzq
+{
+    width: 400px;
+}
+.tablaResCeldaDer
+{
+    width: 200px;
+}
+
+#tablaResultados
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    font-size:12px;
+}
+#tablaResultados td, #tablaResultados th 
+{
+    font-size:1em;
+    border:1px solid #483D8B;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+#tablaResultados th 
+{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+
+#tablaResultados th label
+{
+    font-size:1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+
+#tablaResultados tr.alt td 
+{
+    color:black;
+    background-color:#EAF2D3;
+}
+
+#tablaServicios
+{
+    font-family:verdana,arial,'sans serif';
+    width:400px;
+    border-collapse:collapse;
+    align:center;
+    font-size:12px;
+}
+#tablaServicios td, #tablaServicios th 
+{
+    font-size:1em;
+    border:1px solid #483D8B;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+#tablaServicios th 
+{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+#tablaServicios tr.alt td 
+{
+    color:black;
+    background-color:#EAF2D3;
+}
+
+
+#tablaContenido
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    font-size:12px;
+}
+#tablaContenido td, #tablaContenido th 
+{
+    font-size:1em;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+
+#tablaInfoDO
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    align:center;
+    font-size:12px;
+    width:890px;
+}
+#tablaInfoDO td, #tablaInfoDO th 
+{
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    width: 200px;
+    height: 20px
+
+}
+
+
+
+#tablaInfoColumna
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    align:center;
+    font-size:11px;
+    width:380px;
+}
+#tablaInfoColumna td, #tablaInfoColumna th 
+{
+    font-size:1em;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    height: 20px
+
+}
+
+
+
+.tablaInfoColumna2
+{   
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    align:center;
+    font-size:11px;
+    width:380px;
+}
+
+
+.tablaInfoColumna2OddRow
+{
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    height: 20px;
+}
+
+.tablaInfoColumna2EvenRow
+{
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    height: 20px;
+}
+
+.tablaInfoDocDo
+{   
+    font-family:verdana,arial,'sans serif';
+    font-size:11px;
+    margin: auto;
+    width:380px;
+}
+
+.tablaInfoDocTransp
+{   
+    font-family:verdana,arial,'sans serif';
+    font-size:11px;
+    margin: auto;
+    width:470px;
+}
+/*------------------------------------- MENU ---------------------------------------------------*/
+
+
+.preload1 
+{
+    background: url('../img/three_0.gif');
+
+}
+
+.menu {
+    margin: auto;
+    height: auto;
+    clear: both;
+}
+
+.menu-center {
+    height: 53px;
+    margin: auto;
+    background:#00ff00 url('../img/three_0.gif') repeat-x;
+}
+
+#nav {
+    padding:0;
+    margin:0;
+    list-style:none;
+    width:960px;
+    height:53px;
+    position:relative;
+    z-index:500;
+    font-family:arial;
+    font-size:12px;
+    font-weight:bold;
+    clear:both;
+}
+#nav li.top {
+    display:block;
+    float:left;
+}
+#nav li a.top_link {
+    display:block;
+    float:left;
+    height:53px;
+    line-height:33px;
+    color:#FFFFFF;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    padding:0 0 0 2px;
+    cursor:pointer;
+}
+#nav li a.top_link span {
+    float:left;
+    display:block;
+    padding:0 10px -10px 5px;
+    height:53px;
+}
+#nav li a.top_link span.down {
+    float:left;
+    display:block;
+    /*controla los espacios entre cajas 1*/
+    padding:10px 10px 0px 15px;
+    height:43px;
+}
+#nav li:hover a.top_link {
+    color:#FFF;
+}
+#nav li:hover a.top_link span {
+    /*background:url(../img/three_1.gif) no-repeat right top;*/
+}
+#nav li:hover a.top_link span.down {
+    padding-bottom:3px;
+}
+/* Default list styling */
+
+#nav li:hover {
+    position:relative;
+    z-index:200;
+}
+#nav li:hover ul.sub { /* posicion submenu */
+    left:1px;
+    top:53px;
+    /*color del fondo del submenu*/
+    background:#003B89;
+    /*margen en el submenu*/
+    /*padding:8px;*/
+    white-space:nowrap;
+    width:260px;
+    height:auto;
+    z-index:300;
+}
+#nav li:hover ul.sub li {
+    display:block;
+    height:25px;
+    position:relative;
+    float:left;
+    width:180px;
+    font-weight:normal;
+}
+#nav li:hover ul.sub li a {
+    display:block;
+    height:18px;
+    width:260px;
+    line-height:18px;
+    text-indent:10px;
+    text-decoration:none;
+    font-size:11px;
+    /*font-weight:bold;*/
+    padding-top:5px;
+    padding-bottom:5px;	
+    color:#FFF;
+}
+
+#nav li:hover ul.sub li a:hover {
+    /*Color de fondo del hover en el submenu*/
+    background:#002557;
+    font-size:11px;
+    /*font-weight:bold;*/
+    color:#79B2FF;
+    padding-top:5px;
+    padding-bottom:5px;	
+    /*border-bottom:1px dotted #ccc;*/
+}
+
+#nav ul, #nav li:hover ul ul, #nav li:hover li:hover ul ul, #nav li:hover li:hover li:hover ul ul, #nav li:hover li:hover li:hover li:hover ul ul {
+    position:absolute;
+    left:-9999px;
+    top:-9999px;
+    width:0;
+    height:0;
+    margin:0;
+    padding:0;
+    padding-bottom:5px;		
+    list-style:none;
+}
+
+.reflex{
+    background:url('../img/reflex.jpg') no-repeat;
+    width:1px;
+    height:53px;
+    float:left;
+}
+
+.t1{
+    /*controla los espacios entre cajas 2*/
+    padding-top:10px;
+    padding-right:15px;
+    padding-left:15px;
+}
+
+/*------------------------------------- ---- ---------------------------------------------------*/
+
+/*------------------------------------- GENERALES ---------------------------------------------------*/
+body
+{
+    font-size:75%;
+    font-family:verdana,arial,'sans serif';
+    background-color:#FFFFFF;
+    color:#000080;
+    margin:auto;
+    width:960px; height:auto; margin:auto;
+}
+
+
+/*------------------------------------- TEXTO ---------------------------------------------------*/
+
+label
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+textarea
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: gray;
+    border-style:inset;
+    border-width:1px;
+    border-color:black;
+}
+
+input
+{
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+p.tituloSubSeccion
+{
+    font-size:14px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: gray;
+    text-transform:uppercase;
+}
+p.tituloSubSeccion2
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+p.footer
+{
+    text-align:center;
+    font-size:10px;
+    font-family:verdana,arial,'sans serif';
+    line-height:20%;
+    color: Gray;
+}
+
+p.header
+{
+    text-align:right;
+    font-size:11px;
+    font-family:verdana,arial,'sans serif';
+    line-height:40%;
+    color: Gray;
+    vertical-align: middle;
+}
+
+a.button
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    text-transform:uppercase;
+    border-style:groove;
+    border-width:5px;
+    border-color: gray;
+    padding: 5px;
+}
+
+h1 {font-size:16px; color:#00347A; margin-bottom:8px; margin-left:8px;font-family:verdana,arial,'sans serif';}
+
+
+/*------------------------------------- DIV ---------------------------------------------------*/
+
+div.contenido
+{
+    width:960px;
+    padding:0px;
+    margin:1px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.SubContenido
+{
+    width:450px;
+    padding:0px;
+    margin:1px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.seccionPrincipal
+{
+    width:900px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+div.seccion50
+{
+    width:405px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+div.contenidoSeccion50
+{
+    width:400px;
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+    height: 150px; 
+    overflow: auto;
+}
+
+div.centered 
+{
+    text-align: center;
+}
+div.centered table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+
+div.seccion
+{
+    width:960px;
+    background-color:#483D8B;
+    color: white;
+    font-size:14px;
+    font-family:verdana,arial,'sans serif';
+    line-height:200%;
+    text-indent:10px;
+}
+
+div.cajaDoc
+{
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+    height: 100px; 
+    overflow: auto; 
+    width: 500px;
+}
+div.cajaDoc table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+
+div.subseccion
+{
+    width:945px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+div.subseccion2
+{
+    width:350px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+
+}
+div.subseccion3
+{
+    width:550px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+
+}
+
+div.textoSeccion
+{
+    font-size:12px;
+    font-family:verdana,arial,'sans serif';
+    text-indent:10px;
+    color: black;
+}
+
+div.footer
+{
+    width:960px;
+    padding:0px;
+    margin:2px;
+    border-style:groove;
+    border-width:1px;
+    border-color: gray;
+}
+
+/*------------------------------------- TABLAS ---------------------------------------------------*/
+
+
+.tablaRes{   
+    font-family:verdana,arial,'sans serif';
+    align:center;
+    font-size:12px;
+
+}
+
+.tablaResHeader{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:4px;
+    padding-bottom:4px;
+    padding-left:4px;
+    padding-right:4px;
+    background-color:#365C6D;
+    color:white;
+}
+
+.tablaResOddRow{
+
+    font-size:1em;
+    border:1px solid black;
+    padding: 5px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFFF;	
+}
+
+.tablaResEvenRow{
+
+    font-size:1em;
+    border:1px solid black;
+    padding: 5px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    text-align:center;
+    background:none repeat scroll 0 0 #D3D3D3;
+}
+
+#tablaResultados
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    font-size:12px;
+}
+#tablaResultados td, #tablaResultados th 
+{
+    font-size:1em;
+    border:1px solid #483D8B;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+#tablaResultados th 
+{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+#tablaResultados tr th label
+{
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+#tablaResultados tr.alt td 
+{
+    color:black;
+    background-color:#EAF2D3;
+}
+
+#tablaServicios
+{
+    font-family:verdana,arial,'sans serif';
+    width:400px;
+    border-collapse:collapse;
+    align:center;
+    font-size:12px;
+}
+#tablaServicios td, #tablaServicios th 
+{
+    font-size:1em;
+    border:1px solid #483D8B;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+#tablaServicios th 
+{
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#365C6D;
+    color:white;
+}
+#tablaServicios tr.alt td 
+{
+    color:black;
+    background-color:#EAF2D3;
+}
+
+
+#tablaContenido
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    font-size:12px;
+}
+#tablaContenido td, #tablaContenido th 
+{
+    font-size:1em;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+
+}
+
+#tablaInfoDO
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    align:center;
+    font-size:12px;
+    width:890px;
+}
+#tablaInfoDO td, #tablaInfoDO th 
+{
+    font-size:1em;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    width: 200px;
+    height: 20px
+
+}
+
+#tablaInfoColumna
+{
+    font-family:verdana,arial,'sans serif';
+    border-collapse:collapse;
+    align:center;
+    font-size:11px;
+    width:380px;
+}
+#tablaInfoColumna td, #tablaInfoColumna th 
+{
+    font-size:1em;
+    padding:3px 7px 2px 7px;
+    font-family:verdana,arial,'sans serif';
+    color: black;
+    font-size:11px;
+    height: 20px
+}
+/*------------------------------------- Manejo Tamaño de columnas ---------------------------------------------------*/
+.columnaTamano40{
+    width: 40%;
+    text-align: left;
+    background: #084B8A;
+    border: black;
+    color: white;
+}
+.columnaTamano20Blue{
+    width: 15%;
+    text-align: left;
+    background: #084B8A;
+    border: black;
+    color: white;
+}
+.columnaTamano40S{
+    width: 40%;
+    text-align: left;
+}
+
+.columnaTamano55S{
+    width: 55%;
+    text-align: left;
+}
+.columnaTamano60{
+    width: 60%;
+    text-align: left;
+    background: #084B8A;
+    border: #0000ff;
+    border-style: groove;
+    border-color: black;
+}
+.columnaTamano20{
+    width: 20%;
+    text-align: left;
+}
+.columnaTamano70{
+    width: 70%;
+    text-align: left;
+    background: #084B8A;
+    border: #0000ff;
+    border-style: groove;
+    border-color: black;
+}
+/*------------------------------------- Ocultar y Mostrar Componentes ---------------------------------------------------*/
+.hide{
+    display: none;
+}
+
+.show {
+    display: table;
+}
+
+/* ----------------------------------------Boton Agregar Documentos DO---------------------------------------*/
+.buttonDoc{
+    color: activeborder;
+    background:#638cb5;
+    border:0px;
+    width:25px;
+    height:25px;
+}
+
+.ui-panelgrid td, .ui-panelgrid tr
+{
+    border-style: none !important
+}
+
+.alineacionTop{
+    vertical-align: top;
+}
+
+/*----------------------------------------MENU---------------------------------------*/
+.menualmaviva, .ui-menu .ui-menu .ui-menu-child .ui-menubar{
+    background: #000080 !important;
+    background-color: #000080 !important;
+    background-repeat: repeat !important;
+    background-attachment: scroll !important;
+    background-position: 0% 0% !important;
+    background-clip: border-box !important;
+    background-origin: padding-box !important;
+    background-size: auto auto !important;
+    width: 100% !important;
+}
+
+.menualmaviva .ui-menuitem-text{
+    color:white !important;
+}
+
+.menualmaviva .ui-menubar {
+    text-align: center !important;
+    background: #000080 !important;
+    width: 100% !important;
+}
+
+.menualmaviva .ui-menu-child{
+    background: #000080 !important;
+}
+
+.menualmaviva ul li.ui-menuitem-active>a{
+    background-image: none !important;
+    background-color:#000080 !important;    
+}
+
+.menualmaviva li ul li.ui-menuitem-active>a{
+    background-image: none !important;
+    background-color:#000080 !important;    
+}
+
+.selectTramitadores .ui-selectonemenu-label {
+    display: block;
+    border: medium none;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    font-weight: normal;
+    font-size: 11px;
+    text-align: left;
+}
+
+.calendarTramites .ui-inputfield {
+    font-weight: normal;
+    border: none;
+    box-shadow: none;
+    font-size: 11px; 
+    width: 100%;
+    background-color: transparent;
+    opacity: 1;
+}
+
+.reglaspicklist .ui-picklist-list{
+    width: 390px !important;
+}
+
+.labelFormRegImp{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+.labelVoBoRegImp{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #6A0888; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+.labelItemSubpRegImp{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #6A0888; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+.labelGastosRegImp{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+.labelDescuentosRegImp{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #6A0888; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+.labelFormRegImpBlock{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #81BEF7; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+    font-size: 12px;
+}
+
+
+.labelInfGen{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #084B8A; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 5px;
+}
+
+.tdDeclImpLev{
+    width: 40%;
+    text-align: center;
+    background: #084B8A;
+    border: black;
+    color: white;
+    font-size: 12px;
+    font-weight: bold; 
+}
+
+.tdDeclImpLevClaro{
+    text-align: center;
+    font-weight: bold;
+    background: #E1D5E0; 
+    border-collapse: collapse;
+}
+/****************BARRA ESTADOS DOs*******************************/
+.ui-doslevantados .ui-progressbar-value{
+    background:#87CD91;
+}
+
+.ui-dosproceso .ui-progressbar-value{
+    background:#E6D61F;
+}
+
+.ui-dosplanillados .ui-progressbar-value{
+    background:#9E0EEB;
+}
+
+.ui-dosnoplanillados .ui-progressbar-value{
+    background:#0EB7EB;
+}
+
+.ui-dosproxvencimiento .ui-progressbar-value{
+    background:#EB0E28;
+}
+
+.ui-dosconvencimiento .ui-progressbar-value{
+    background:#0D0D70;
+}
+
+.customHeader th{
+    background-color: red;
+}
+
+.panelDosLevantados > .ui-panel-titlebar {
+    background: #87CD91;
+    color: black;
+    font-weight: bold;
+}
+
+.panelDosnoplanillados > .ui-panel-titlebar {
+    background: #0EB7EB;
+    color: black;
+    font-weight: bold;
+}
+
+.panelDosplanillados > .ui-panel-titlebar {
+    background: #9E0EEB;
+    color: white;
+    font-weight: bold;
+}
+
+.panelDosnoproceso > .ui-panel-titlebar {
+    background: #E6D61F;
+    color: black;
+    font-weight: bold;
+}
+
+.ui-envio-correo{
+    width: 70px;   
+    height: 70px;   
+    background-image: url(../img/email-icon.png) ;
+    background-position: center;
+    background-repeat: no-repeat;    
+    display: block;
+
+}
+
+.labelFormDI{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 4px;
+}
+
+.labelFormSubpDI{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #4A2668; 
+    padding: 5px 6px;
+    display: inline-block;
+    margin: 1px 4px;
+}
+
+.labelFormNumsDI{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 10px;
+    display: inline-block;
+    margin: 1px 0px 1px 5px;;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center
+}
+
+.labelFormDINums{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 4px 1px 0px;
+}
+
+.labelFormNumsDIPanelEstrecho{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 7px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center
+}
+
+.labelFormNumsDIPanel{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 10px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center
+}
+
+.labelNumsLiqDi{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 4px 4px 4px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center;
+    width: 18px;
+    vertical-align: top;
+}
+
+.labelNumsLiqDiTotal{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 4px 4px 4px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center;
+    width: 18px;
+}
+
+
+
+.labelFormDINumsPanel{
+    text-indent: 0px;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+}
+
+.labelFormSubpNumsPanel{
+    text-indent: 0px;
+    color: white; 
+    font-weight: bold;
+    background-color: #4A2668; 
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+}
+
+.labelLiquidSubpNums{
+    text-indent: 0px;
+    color: white; 
+    font-weight: bold;
+    background-color: #4A2668; 
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 0px 4px 0px 0px;
+    text-align: left;
+}
+
+.labelNumsLiquidSubp{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 8px;
+    display: inline-block;
+    margin: 0px 0px 0px 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: left;
+}
+
+.calendarDI .ui-inputfield {
+    font-weight: normal;
+    font-size: 11px; 
+    width: 94px;
+    background-color: transparent;
+    opacity: 1;
+    text-align: center
+}
+
+.panelFormDI{
+    display: inline-block;
+    padding: 4px 2px 4px 2px;
+    vertical-align: top;
+}
+
+.selectFormDI .ui-selectonemenu-label {
+    display: block;
+    border: medium none;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    font-weight: normal;
+    font-size: 10px;
+    text-align: left;
+    vertical-align: top;
+    text-indent: 5px;
+    margin: 0px;
+}
+
+.labelImgVertical{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bolder;
+    background-color: #D3D3D3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 0px 1px 5px;;
+    font-size: 12px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.labelTablaLiquidacionDI{
+    text-align: left;
+    text-indent: 0;
+    color: #000000; 
+    font-weight: bold;
+    background-color: #F0EAF5; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px;
+    border: 1px solid #361550;
+    text-align: center;
+    height: 25px;
+    vertical-align: top;
+}
+
+.labelBlancoDI{
+    text-align: left;
+    text-indent: 0;
+    color: #000000; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px;
+    border: 1px solid #000000;
+    text-align: center;
+    height: 25px;
+    vertical-align: top;
+}
+
+
+.panelFormDAV{
+    display: inline-block;
+    padding: 4px 2px 4px 2px;
+    vertical-align: top;
+}
+
+.labelBlancoDAV{
+    text-align: left;
+    text-indent: 0;
+    color: #000000; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px;
+    border: 1px solid #000000;
+    text-align: center;
+    height: 25px;
+    vertical-align: top;
+}
+
+
+
+.labelFormNumsDAVPanel{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 10px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center
+}
+
+.labelFormDAVNumsPanel{
+    text-indent: 0px;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 5px;
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+    vertical-align: top
+}
+
+.labelFormNumsDAVPanelEstrecho{
+    text-align: left;
+    text-indent: 0;
+    color: black; 
+    font-weight: bold;
+    background-color: #FFFFFF; 
+    padding: 4px 7px;
+    display: inline-block;
+    margin: 0px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 8px;
+    text-align: center;
+    vertical-align: top;
+}
+
+
+.labelFormDAV{
+    text-align: left;
+    text-indent: 0;
+    color: white; 
+    font-weight: bold;
+    background-color: #0C63B3; 
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 1px 4px;
+}
+
+
+.selectFormDAV .ui-selectonemenu-label {
+    display: block;
+    border: medium none;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    font-weight: normal;
+    font-size: 10px;
+    text-align: left;
+    text-indent: 5px;
+    margin: 0px;
+    vertical-align: top;
+}
+

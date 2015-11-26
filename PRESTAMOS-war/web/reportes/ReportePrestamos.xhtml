@@ -1,0 +1,101 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="../templates/templateContenido.xhtml">
+    <ui:define name="contenido">
+        <h:form id="formularioReportes" >
+            <h1>Administracion Reportes</h1>  
+            <p:outputPanel id="panelReportes"> 
+                <div align="center">
+                    <p:spacer/>
+
+                    <p:outputPanel id="contenedorFiltrosReportes">
+                        <p:panel id="panelInformacionReportes" header="Informacion Reportes" style="width: 100%" toggleable="true" >
+                            <p:panel>
+                                <p:panelGrid id="gridCrossdocking" columns="4">
+                                    <p:outputLabel value="Fecha Inicial " for="fechaInicial"/>
+                                    <p:calendar id="fechaInicial" value="#{crossdockingController.fechaInicial}" size="25" pattern="dd/MM/yyyy" readonlyInput="true"/>
+
+                                    <p:outputLabel value="Fecha Final " for="fechaFinal"/>
+                                    <p:calendar id="fechaFinal" value="#{crossdockingController.fechaFinal}"  size="25" pattern="dd/MM/yyyy" readonlyInput="true"/>
+
+                                    <p:outputLabel value="Doc Transporte" for="docTransporte"/>
+                                    <p:inputText id="docTransporte" value="#{crossdockingController.ldocTrans}" size="25"/>
+
+                                    <p:outputLabel value="Tipo de operación " for="tipoOperacion" style="text-align: left"/>
+                                    <p:selectOneMenu id="tipoOperacion" value="#{crossdockingController.ltipoper}" style="width: 200px" filter="true" filterMatchMode="contains"  effect="fade">
+                                        <f:selectItems value="#{crossdockingController.listaOperacion}"/>
+                                    </p:selectOneMenu>
+
+                                </p:panelGrid>
+                                <p:spacer/>
+                                <div align="center">
+                                    <p:commandButton value="Consultar" style="width:90px;">
+                                        <p:ajax listener="#{crossdockingController.consultarCargasImportadas()}" process="@this,fechaInicial,fechaFinal,docTransporte,tipoOperacion" update="@form"/>
+                                    </p:commandButton>
+                                </div>
+                                <p:spacer/>
+                                <p:panel header="Informacion Consulta" rendered="#{crossdockingController.listaDataTable.size()>0}">
+                                    <p:row>
+                                        <p:commandLink  style="float: right" ajax="false" action="#{crossdockingController.generalExcel()}" >
+                                            <p:graphicImage value="/resources/img/excel.png" style="height: 24px; width: 22px" title="Exportar Consulta a Excel" />
+                                        </p:commandLink>
+                                    </p:row>
+                                    <p:spacer height="30"/>
+                                    <p:row>
+                                        <p:dataTable id="dataTableInformacionConsulta" value="#{crossdockingController.listaDataTable}" 
+                                                     var="item" 
+                                                     paginator="true" 
+                                                     rows="5" 
+                                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                     emptyMessage="No se encontraron coinsidencias"
+                                                     rowsPerPageTemplate="5,10,15" 
+                                                     styleClass="tablaRes"
+                                                     scrollWidth="865"
+                                                     scrollable="true"
+                                                     >
+
+                                            <p:column headerText="Numero consecutivo" sortBy="#{item.consecutivo}" filterBy="#{item.consecutivo}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.consecutivo}"/>
+                                            </p:column>
+
+                                            <p:column headerText="Documento de transporte" sortBy="#{item.docTransporte}" filterBy="#{item.docTransporte}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.docTransporte}" />
+                                            </p:column>
+
+                                            <p:column headerText="Número del contenedor " sortBy="#{item.noContenedor}" filterBy="#{item.noContenedor}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.noContenedor}"/>
+                                            </p:column>
+
+                                            <p:column headerText="Tipo de operación" sortBy="#{item.tipoOperacion}" filterBy="#{item.tipoOperacion}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.tipoOperacion}"/>
+                                            </p:column>
+
+                                            <p:column headerText="Fecha de arribo a puerto real" sortBy="#{item.fechaArriboreal}" filterBy="#{item.fechaArriboreal}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.fechaArriboreal}"/>
+                                            </p:column>
+                                            <p:column headerText="Fecha de levante real" sortBy="#{item.fechaLevantereal}" filterBy="#{item.fechaLevantereal}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.fechaLevantereal}"/>
+                                            </p:column>
+                                            <p:column headerText="Numero de Factura OTM" sortBy="#{item.facturaOtm}" filterBy="#{item.facturaOtm}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.facturaOtm}"/>
+                                            </p:column>
+                                            <p:column headerText="Fecha OnHand real" sortBy="#{item.fechaOnhandreal}" filterBy="#{item.fechaOnhandreal}" filterMatchMode="contains">
+                                                <h:outputText value="#{item.fechaOnhandreal}"/>
+                                            </p:column>
+
+                                        </p:dataTable>
+                                    </p:row>
+                                </p:panel>
+                            </p:panel>
+                           
+                        </p:panel>
+                    </p:outputPanel>
+                </div>
+            </p:outputPanel>  
+        </h:form>
+    </ui:define>
+</ui:composition>

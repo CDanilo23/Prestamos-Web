@@ -1,0 +1,269 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../templates/templateContenido.xhtml">
+    <ui:define name="contenido">
+        <f:view>
+            <f:event type="preRenderComponent" listener="#{stClienteController.init()}"/>
+        </f:view>
+        <h:form id="search" onkeypress="if (event.keyCode === 13) {
+                    return false;
+                }">
+            <h1>Administración de Usuarios - Información</h1>
+
+            <p:panel header="Consultar cliente" style="text-align: left">  
+                <div align="center">
+                    <p:panelGrid columns="3">  
+                        <p:outputLabel value="#{bundleGeneral.ViewCeTerceroLabel_terNom} "/>
+                        <p:autoComplete id="stCliente" minQueryLength="3" scrollHeight="150"  size="75" 
+                                        value="#{stClienteController.clienteSeleccionado}" emptyMessage="No existen clientes con estos criterios de consulta"
+                                        completeMethod="#{stClienteController.findAllClienteDescription}"
+                                        var="p" itemLabel="#{p.usuNombre}" itemValue="#{p}" converter="stClienteConverter"  
+                                        forceSelection="true" valueChangeListener="#{stClienteController.handleSelect}">
+                            <p:column headerText="Nro Identificacion">
+                                #{p.usuCedula}
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                #{p.usuNombre}
+                            </p:column>
+                            <p:ajax event="itemSelect" update="panelPrueba,panelPestanas" listener="#{stClienteController.probando}"  onstart="PF('dlgLoading').show()" oncomplete="PF('dlgLoading').hide()"/>
+                        </p:autoComplete>
+                        <p:graphicImage id="grow" value="/resources/img/helpIcon.png" />
+                        <p:tooltip for="grow" value="Digite 3 letras que contengan el nombre del usuario o el numero de cedula completo" showEffect="clip" hideEffect="explode" />  
+                    </p:panelGrid> 
+                    
+                </div>
+            </p:panel>
+
+
+            <p:outputPanel id="panelPrueba">
+                <p:tabView  id="panelPestanas" rendered="#{stClienteController.flagPrepareEdit}" >
+                    <p:ajax event="tabChange" process="@form" update="panelPestanas" listener="#{stClienteController.cambioTab}" onstart="PF('dlgLoading').show()" oncomplete="PF('dlgLoading').hide()"/>
+                    <p:spacer height="5"/>
+                    <p:messages id="messages" autoUpdate="true" closable="true" /> 
+                    <p:spacer height="5"/>
+                    <p:tab id="tab1" title="Informacion general de usuario">  
+
+                        <p:panel header="Informacion usuario" style="text-align: left" id="paneltabprincipal"  >
+                            <div align="center">
+                                <p:panel id="panelPo" >
+                                    <p:panelGrid columns="4" style="width: 100%" id="panelTab1" > 
+
+                                        <p:outputLabel value="Cedula"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuCedula}" size="30"  readonly="true"/>
+
+                                        <p:outputLabel value="Nombre"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuNombre}"  size="30" readonly="true"/>
+
+                                        <p:outputLabel value="Telefono celular"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuMovil}" size="30"  readonly="true"/>
+
+                                        <p:outputLabel value="Telefono fijo"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuTelefono}" size="30"  readonly="true"/>
+
+                                        <p:outputLabel value="Dirección"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuDireccion}" size="30"     readonly="true" />
+
+                                        <p:outputLabel value="Correo electronico"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuCorreo}" size="30"  readonly="true"/>
+
+                                        <p:outputLabel value="Ciudad"/>
+                                        <p:inputText value="#{stClienteController.clienteSeleccionado.usuCiudad}" size="30"  readonly="true"/>
+                                    </p:panelGrid>
+                                </p:panel>
+                            </div>
+                            <p:spacer height="25" />
+
+                        </p:panel>
+
+                    </p:tab>
+
+                    <p:tab id="tab2" title="Informacion prestamos y cuotas"> 
+
+                        <p:panel id="panelAsociacionEdicion"  style="text-align: left" toggleable="true" >
+                            <p:panelGrid columns="3">
+
+                                <p:outputLabel value="Codigos prestamos" for="codigoPrestamo" style="text-align: left"/>
+                                <p:selectOneMenu value="#{stClienteController.lprestamo}" 
+                                                 id="codigoPrestamo" style="width: 200px" filter="true" filterMatchMode="contains"  effect="fade">
+                                    <p:ajax listener="#{stClienteController.obtenerCuotasPorPrestamo}" update="dataTableCuotasPorPrestamo" process="codigoPrestamo"/>
+                                    <f:selectItems value="#{stClienteController.listaCodigosPrestamos}"/>
+                                </p:selectOneMenu>
+
+                                <p:graphicImage id="grow" value="/resources/img/helpIcon.png" />
+                                <p:tooltip for="grow" value="Seleccione el id del prestamo del cual desea ver informacion detallada" showEffect="clip" hideEffect="explode" />  
+
+                            </p:panelGrid>
+                        </p:panel>
+
+                        <p:panel header="Informacion de cuotas por prestamo" style="text-align: left">
+                            <div align="center">
+                                <p:outputPanel id="panelContenedorMedio">
+                                    <p:panel id="panelCuotasPorPrestamo" >
+                                        <p:panelGrid columns="4" id="TablaCoutasPorPrestamo" >
+
+                                            <p:dataTable value="#{stClienteController.listaCoutasTable}" 
+                                                         id="dataTableCuotasPorPrestamo" 
+                                                         var="cuota" 
+                                                         paginator="true" 
+                                                         rows="5" 
+                                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} 
+                                                         {RowsPerPageDropdown}"
+                                                         emptyMessage="No se encontraron cuotas"
+                                                         rowsPerPageTemplate="5,10,15" 
+                                                         styleClass="tablaRes">
+                                                <f:facet name="header">  
+                                                    Lista cuotas
+                                                </f:facet>  
+
+                                                <p:column headerText="Valor cuota" sortBy="#{cuota.valor}" filterBy="#{cuota.valor}" filterMatchMode="contains">
+                                                    <h:outputText value="#{cuota.valor}" />
+                                                </p:column>
+
+                                                <p:column headerText="Fecha inicial" sortBy="#{cuota.fechaInicial}" filterBy="#{cuota.fechaInicial}" filterMatchMode="contains">
+                                                    <h:outputText value="#{cuota.fechaInicial}">
+                                                        <f:convertDateTime pattern="MM-dd-yyyy" />
+                                                    </h:outputText>
+                                                </p:column>
+
+                                                <p:column headerText="Fecha vencimiento" sortBy="#{cuota.fechaVencimiento}" filterBy="#{cuota.fechaVencimiento}" filterMatchMode="contains">
+                                                    <h:outputText value="#{cuota.fechaVencimiento}">
+                                                        <f:convertDateTime pattern="MM-dd-yyyy" />
+                                                    </h:outputText>
+                                                </p:column>
+
+                                            </p:dataTable>
+
+                                        </p:panelGrid>
+
+                                    </p:panel>
+                                </p:outputPanel>
+                            </div>
+                        </p:panel>
+
+
+                    </p:tab>
+
+                    <p:tab id="tab3" title="Registro y consulta de prestamos"> 
+
+                        <p:panel id="panelRegistroPrestamo"  style="text-align: left" toggleable="true" rendered="#{stClienteController.activadorPanelRegistroPrestamoPadre}">
+                            <p:panelGrid columns="4">
+
+                                <p:outputLabel value="Consecutivo prestamo: " for="consecPrestamo" style="text-align: left"/>
+                                <p:inputText id="consecPrestamo" value="#{stClienteController.consecPrestamo}" size="30" converterMessage="Este campo solo recibe numeros">
+                                    <f:convertNumber integerOnly="true" type="number" />
+                                </p:inputText>
+
+                                <p:graphicImage id="grow8" value="/resources/img/helpIcon.png" />
+                                <p:tooltip for="grow" value="Digite el consecutivo, debe ser numerico " showEffect="clip" hideEffect="explode" />  
+
+                                <p:outputLabel value="Valor prestamo: " for="valorPrestamo" style="text-align: left"/>
+                                <p:inputText id="valorPrestamo" value="#{stClienteController.lvalorNuevoPrestamo}" size="30" converterMessage="Este campo solo recibe numeros">
+                                    <f:convertNumber integerOnly="true" type="number" />
+                                </p:inputText>
+
+                                <p:graphicImage id="grow1" value="/resources/img/helpIcon.png" />
+                                <p:tooltip for="grow" value="Digite el valor del prestamo " showEffect="clip" hideEffect="explode" />  
+
+                                <div align="center">
+                                    <p:outputPanel>
+                                        <p:commandButton value="Guardar" action="#{stClienteController.guardarPrestamo}" update="panelRegistroPrestamo,panelPadrePrestamosRegistrados" process="@this,consecPrestamo,valorPrestamo,fechaInicioPrestamo,numValorCuotas"/>  
+                                    </p:outputPanel>
+                                </div>
+                            </p:panelGrid>
+                        </p:panel>
+
+                        <p:panel header="Informacion de prestamos registrados" 
+                                 style="text-align: left" 
+                                 id="panelPadrePrestamosRegistrados" 
+                                 rendered="#{stClienteController.activadorPanelPrestamosRegistrados}" >
+                            <div align="center">
+                                <p:outputPanel id="panelHijoPrestamosRegistrados">
+                                    <p:panel id="panelNietoPrestamosRegistrados" >
+
+                                        <p:panelGrid columns="4" id="grillaPrestamosRegistrados" >
+
+                                            <p:dataTable value="#{stClienteController.listaPrestamosRegistrados}" 
+                                                         id="dataTablePrestamosRegistrados" 
+                                                         var="prestamo" 
+                                                         paginator="true" 
+                                                         rows="5" 
+                                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} 
+                                                         {RowsPerPageDropdown}"
+                                                         emptyMessage="No se encontraron prestamos"
+                                                         rowsPerPageTemplate="5,10,15" 
+                                                         styleClass="tablaRes">
+                                                <f:facet name="header">  
+                                                    Lista Prestamos
+                                                </f:facet>  
+
+                                                <p:column headerText="Consecutivo prestamo" sortBy="#{prestamo.consecutivo}" filterBy="#{prestamo.consecutivo}" filterMatchMode="contains">
+                                                    <h:outputText value="#{prestamo.consecutivo}" />
+                                                </p:column>
+
+                                                <p:column headerText="Monto" sortBy="#{prestamo.monto}" filterBy="#{prestamo.monto}" filterMatchMode="contains">
+                                                    <h:outputText value="#{prestamo.monto}"/>
+                                                </p:column>
+
+                                                <p:column headerText="Asignar coutas a prestamo" style="font-size:11px; font-weight: bold"  >
+                                                    <p:commandLink >
+                                                        <p:ajax listener="#{stClienteController.asignarCuotasAPrestamo(prestamo)}" update="@form" immediate="true"/>
+                                                        <p:graphicImage id="imgEdit" value="/resources/img/editar.png"  />
+                                                    </p:commandLink>
+                                                </p:column>
+
+                                            </p:dataTable>
+
+                                        </p:panelGrid>
+
+
+                                    </p:panel>
+                                </p:outputPanel>
+                            </div>
+                        </p:panel>
+
+                        <p:panel header="Asociando cuotas a prestamo N°: #{stClienteController.prestamoSeleccionado.consecutivo}" id="panelAsociarCuotasAprestamo" rendered="#{stClienteController.activadorPanelAsociarCuotasAprestamo}" >
+                            <p:panelGrid columns="4">
+                                <p:outputLabel value="Cuotas" for="numValorCuotas" style="text-align: left"/>
+                                <p:selectOneMenu value="#{stClienteController.valNumCuotas}" required="true"
+                                                 id="numValorCuotas" style="width: 200px" filter="true" filterMatchMode="contains"  effect="fade">
+                                    <p:ajax listener="#{stClienteController.obtenerCuotasPorPrestamo}" update="dataTableCuotasPorPrestamo"/>
+                                    <f:selectItems value="#{stClienteController.listaNumeroCoutas}"/>
+                                </p:selectOneMenu>
+
+                                <p:graphicImage id="grow2" value="/resources/img/helpIcon.png" />
+                                <p:tooltip for="grow" value="Seleccione a cuantas cuotas va destinar prestamo " showEffect="clip" hideEffect="explode" />  
+
+                                <p:outputLabel value="Fecha Inicial " for="fechaInicioPrestamo" style="text-align: left"/>
+                                <p:calendar id="fechaInicioPrestamo" value="#{stClienteController.fechaInicialPrestamo}" size="12" pattern="dd/MM/yyyy" readonlyInput="true"/>
+
+                                <p:graphicImage id="grow3" value="/resources/img/helpIcon.png" />
+                                <p:tooltip for="grow" value="Seleccione el id del prestamo del cual desea ver informacion detallada" showEffect="clip" hideEffect="explode" />  
+                            </p:panelGrid>
+                        </p:panel>
+
+                        <div align="center">
+                            <p:panelGrid columns="2">
+                                <p:outputPanel rendered="#{stClienteController.activadorPanelAsociarCuotasAprestamo}" id="botonGuardarAsociacionDeCuotas">
+                                    <p:commandButton value="Guardar" action="#{stClienteController.dividirCuotasAPrestamo()}" update="@form,panelAsociarCuotasAprestamo,botonGuardarAsociacionDeCuotas,panelPadrePrestamosRegistrados,panelRegistroPrestamo" process="@this,numValorCuotas,fechaInicioPrestamo"/>  
+                                </p:outputPanel>
+                                <p:outputPanel rendered="#{stClienteController.activadorPanelAsociarCuotasAprestamo}" id="botonCancelarAsociacionDeCuotas">
+                                    <p:commandButton value="Cancelar" action="#{stClienteController.cancelarDividirCuotasAPrestamo()}" update="@form,panelAsociarCuotasAprestamo,botonCancelarAsociacionDeCuotas,panelPadrePrestamosRegistrados,panelRegistroPrestamo"/>  
+                                </p:outputPanel>
+                            </p:panelGrid>    
+                        </div>
+                    </p:tab>
+                </p:tabView>
+            </p:outputPanel>
+
+
+            <p:dialog showHeader="false" widgetVar="dlgLoading" resizable="false" modal="true" closable="false">
+                <p:panel>
+                    <p:graphicImage value="/resources/img/loading.gif"/>
+                </p:panel>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+</ui:composition>

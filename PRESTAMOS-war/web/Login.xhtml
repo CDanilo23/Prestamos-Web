@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/templateLogin.xhtml">
+    
+    <ui:define name="contenido">
+        <h:form id="form" >
+            <p:panelGrid columns="1" style="width: 960px;height: 400px;">
+                <p:panelGrid columns="2" style="margin:50px auto;">
+                    <h:outputLabel for="username" value="Usuario:"/>
+                    <p:inputText value="#{ceValidadorIngresoController.username}" id="username" required="true" label="username"/>
+
+                    <h:outputLabel for="password" value="Contraseña:" />
+                    <p:password value="#{ceValidadorIngresoController.password}" id="password" required="true" label="password"/>
+
+                    <p:commandButton id="loginButton" value="Entrar" action="#{ceValidadorIngresoController.ceValidadorIngreso}" onstart="PF('dlgLoading').show()" oncomplete="PF('dlgLoading').hide()"/>
+                </p:panelGrid>
+            </p:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

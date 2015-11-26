@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../templates/templateContenido.xhtml">
+    <ui:define name="contenido">
+        <f:view>
+            <f:event type="preRenderComponent" listener="#{stClienteController.init()}"/>
+        </f:view>
+        <h:form id="search" onkeypress="if (event.keyCode === 13) {
+                    return false;
+                }">
+            <p:panel header="Registro nuevo usuario" id="panelPadre">
+                <p:panelGrid id="panelHijo" columns="4">
+                    <p:outputLabel value="Nombre Usuario: " for="nomUsuario" style="text-align: left"/>
+                    <p:inputText id="nomUsuario" value="#{stClienteController.nuevoUsuario.usuNombre}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Cedula: " for="numCedula" style="text-align: left"/>
+                    <p:inputText id="numCedula" value="#{stClienteController.nuevoUsuario.usuCedula}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Movil: " for="numMovil" style="text-align: left"/>
+                    <p:inputText id="numMovil" value="#{stClienteController.nuevoUsuario.usuMovil}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Direccion: " for="numDireccion" style="text-align: left"/>
+                    <p:inputText id="numDireccion" value="#{stClienteController.nuevoUsuario.usuDireccion}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Correo: " for="nomCorreo" style="text-align: left"/>
+                    <p:inputText id="nomCorreo" value="#{stClienteController.nuevoUsuario.usuCorreo}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Ciudad: " for="nomCiudad" style="text-align: left"/>
+                    <p:inputText id="nomCiudad" value="#{stClienteController.nuevoUsuario.usuCiudad}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                    <p:outputLabel value="Telefono: " for="numTel" style="text-align: left"/>
+                    <p:inputText id="numTel" value="#{stClienteController.nuevoUsuario.usuTelefono}" size="30" required="true" requiredMessage="Este campo es obligatorio"/>
+
+                </p:panelGrid>
+                <div align="center">
+                    <p:outputPanel>
+                        <p:commandButton value="Guardar" action="#{stClienteController.crearNuevoUsuario()}" update="@form" process="@this,nomUsuario,numCedula,numMovil,numDireccion,nomCorreo,nomCiudad,numTel"/>  
+                    </p:outputPanel>
+                </div> 
+            </p:panel>  
+            
+            <p:dialog showHeader="false" widgetVar="dlgLoading" resizable="false" modal="true" closable="false">
+                <p:panel>
+                    <p:graphicImage value="/resources/img/loading.gif"/>
+                </p:panel>
+            </p:dialog>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv='cache-control' content='no-cache' />
+        <meta http-equiv='expires' content='0' />
+        <meta http-equiv='pragma' content='no-cache' />
+
+        <title><ui:insert name="title">Prestamos-WEB</ui:insert></title>
+        <h:outputStylesheet name="css/estiloSCE.css"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <h:form id="formTemplateCont">
+                <p:growl id="growl" life="2000" />
+                <p>
+                    <table border="0" width="960px" >
+                        <tr>
+                            <td>
+                                <!--<img src="#{request.contextPath}/faces/resources/img/logo.png" alt="almaviva" width="220" height="80"/>-->
+                            </td>
+                            <td align="center">
+                                <h1>Sistema de prestamos</h1>
+                            </td>
+                            <td vertical-align="bottom">
+                                <p class="header"> 
+                                    <p:outputLabel id="oLusuariocession" value="#{ceValidadorIngresoController.usuarioEnSesion}"/> 
+                                </p>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <p class="header">
+                                    <p:commandLink id="cLcerrarcession" actionListener="#{ceValidadorIngresoController.cerrarCession}" ajax="false">
+                                        <h:outputText value="Cerrar sesion"/>
+                                    </p:commandLink> 
+                                </p>
+                             </td>
+                        </tr>
+                    </table> 
+                    <table>
+                        <tr>
+                            <td>
+                                <ui:include src="#{ceValidadorIngresoController.menu}" />
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </h:form>
+        </div>
+        <div id="contenido">
+            <table>
+                <tr>
+                    <p:messages id="message" escape="false" autoUpdate="true" closable="true" />
+                </tr>
+            </table>
+            <ui:insert name="contenido">    
+
+            </ui:insert>
+        </div>
+        <div id="footer">
+            <p class="footer">Ninfa Gonzales</p>
+            <p class="footer">Cristian Ordoñez</p>
+            <p class="footer">Jason Juanias</p>
+            <p class="footer">COPYRIGHT 2015</p>
+            <p class="footer">Se prohíbe la reproducción total o parcial de cualquiera de los contenidos que aquí aparezcan, </p>
+            <p class="footer">así como su traducción a cualquier idioma sin autorización escrita de su titular. </p>
+        </div>
+
+        <p:dialog showHeader="false" widgetVar="dlgLoading" resizable="false" modal="true" closable="false">
+            <p:panel>
+                <p:graphicImage value="/resources/img/loading.gif"/>
+            </p:panel>
+        </p:dialog>
+    </h:body>
+</html>
