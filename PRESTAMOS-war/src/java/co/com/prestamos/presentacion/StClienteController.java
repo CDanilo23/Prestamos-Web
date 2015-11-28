@@ -10,6 +10,12 @@ import co.com.prestamos.entities.Cuota;
 import co.com.prestamos.entities.Prestamo;
 import co.com.prestamos.entities.ReportePrestamoDTO;
 import co.com.prestamos.entities.Usuario;
+import dori.jasper.engine.JRExporter;
+import dori.jasper.engine.JasperFillManager;
+import dori.jasper.engine.JasperPrint;
+import dori.jasper.engine.data.JRBeanCollectionDataSource;
+import dori.jasper.engine.export.JRPdfExporter;
+import dori.jasper.engine.export.JRXlsExporterParameter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -619,9 +625,10 @@ public class StClienteController implements Serializable {
     
     public void generarReporteGeneralPDF() throws IOException/*, JRException*/ {
 
-        try {
+       try {
             List<ReportePrestamoDTO> lista = persistenciaClienteControllerEJB.obtenerDatosReporte(clienteSeleccionado);
             
+            //este metodo se vuela
             for(ReportePrestamoDTO reporte : lista){
                 System.out.println("**********nombre usuario: "+reporte.getUsuario().getUsuNombre()+"**********");
                 System.out.println("**********cedula usuario: "+reporte.getUsuario().getUsuCedula()+"**********");
@@ -632,8 +639,6 @@ public class StClienteController implements Serializable {
             }
             
             
-            byte[] bytes = null;
-            String ruta;
             FacesContext context = FacesContext.getCurrentInstance();
             HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
             Map<String, Object> parametros = new HashMap<String, Object>();
@@ -642,33 +647,30 @@ public class StClienteController implements Serializable {
 //            System.out.println("Ruta: "+ ruta);
 //            parametros.put("pLogo", ruta);
 
-            InputStream archivoJasper = this.getClass().getResourceAsStream("../reportesJasper/reporteCrossdocking.jasper");
+            InputStream archivoJasper = this.getClass().getResourceAsStream("../reportesJasper/reportePrestamos.jasper");
 
             String nombreArchivo = "reportePrestamos.pdf";
 
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(archivoJasper, parametros, new JRBeanCollectionDataSource(lista));
-//            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//            JRXlsxExporter exporter = new JRXlsxExporter();
-//            exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT, jasperPrint);
-//            exporter.setParameter(JRXlsExporterParameter.OUTPUT_FILE_NAME, nombreArchivo);
-//            exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);
-//            exporter.setParameter(JRXlsExporterParameter.IS_COLLAPSE_ROW_SPAN, true);
-//            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
-//            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS, true);
-//            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, true);
-//            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, true);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(archivoJasper, parametros, new JRBeanCollectionDataSource(lista));
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            JRExporter exporter = new JRPdfExporter();
+            exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT, jasperPrint);
+            exporter.setParameter(JRXlsExporterParameter.OUTPUT_FILE_NAME, nombreArchivo);
+            exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, true);
 
-//            exporter.exportReport();
+            exporter.exportReport();
 //
-//            ExternalContext ext = context.getExternalContext();
-//            HttpServletResponse response = (HttpServletResponse) ext.getResponse();
-//            response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-//            response.setHeader("Content-Disposition", "inline; filename=" + nombreArchivo);
-//            ServletOutputStream servletOutputStream = response.getOutputStream();
-//            servletOutputStream.write(byteArrayOutputStream.toByteArray());
-//            servletOutputStream.flush();
-//            servletOutputStream.close();
-//            FacesContext.getCurrentInstance().responseComplete();
+            ExternalContext ext = context.getExternalContext();
+            HttpServletResponse response = (HttpServletResponse) ext.getResponse();
+            response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            response.setHeader("Content-Disposition", "inline; filename=" + nombreArchivo);
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+            servletOutputStream.write(byteArrayOutputStream.toByteArray());
+            servletOutputStream.flush();
+            servletOutputStream.close();
+            FacesContext.getCurrentInstance().responseComplete();
         } catch (Exception e) {
             e.printStackTrace();
         }
